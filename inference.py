@@ -17,7 +17,7 @@ def get_prediction():
     age = request.args.get("age")
     years_in_contract = request.args.get("years_in_contract")
     request_data = [[is_male, num_inters, late_on_payment, age, years_in_contract]]
-
+    print(request_data)    
     return str(model.predict(request_data)[0])
 
 
@@ -25,7 +25,7 @@ def get_prediction():
 if __name__ == "__main__":
 
     model = pickle.load(open("churn_model.pkl", "rb"))
-    print('shalom')
+    print(model)
 
     port = os.environ.get('PORT')
     if port:
