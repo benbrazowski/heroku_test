@@ -24,7 +24,7 @@ def get_prediction():
 # Running from pycharm the code instead of terminal
 if __name__ == "__main__":
 
-    # model = pickle.load(open("churn_model.pkl", "rb"))
+    model = pickle.load(open("churn_model.pkl", "rb"))
     print('shalom')
 
     port = os.environ.get('PORT')
