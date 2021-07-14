@@ -1,1 +1,1 @@
-web: gunicorn inference.py:app
+web: gunicorn inference:app
