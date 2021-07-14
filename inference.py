@@ -4,6 +4,7 @@ from flask import request
 import os
 
 app = Flask(__name__)
+model = pickle.load(open("churn_model.pkl", "rb"))
 
 @app.route("/")
 def hello():
@@ -11,6 +12,7 @@ def hello():
 
 @app.route("/predict_churn", methods=["GET"])
 def get_prediction():
+    global model
     is_male = request.args.get("is_male")
     num_inters = request.args.get("num_inters")
     late_on_payment = request.args.get("late_on_payment")
@@ -23,8 +25,6 @@ def get_prediction():
 
 # Running from pycharm the code instead of terminal
 if __name__ == "__main__":
-
-    model = pickle.load(open("churn_model.pkl", "rb"))
     print(model)
 
     port = os.environ.get('PORT')
